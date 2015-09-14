@@ -105,8 +105,8 @@ inline ss_size_t copy_contents(C *dest, ss_size_t cchDest, C const* src, ss_size
     }
     else
     {
-        typedef C                       char_t;
-        typedef stlsoft_char_traits<C>  traits_t;
+        typedef C                            char_t;
+        typedef stlsoft_char_traits<char_t>  traits_t;
 
         const ss_size_t cchContent  =   (cchSource < cchDest) ? cchSource : cchDest;
 
