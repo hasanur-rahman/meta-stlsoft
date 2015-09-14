@@ -1360,18 +1360,7 @@
  *
  * \param expr A compile-time evaluatable condition that must be non-zero, or compilation will fail.
  */
-#if defined(STLSOFT_CF_static_assert_SUPPORT)
-# define STLSOFT_STATIC_ASSERT(expr)        static_assert((expr), #expr)
-#elif defined(STLSOFT_CF_STATIC_ASSERT_SUPPORT)
-# if defined(STLSOFT_COMPILER_IS_GCC) || \
-      defined(STLSOFT_COMPILER_IS_INTEL)
-#  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1]; } while(0)
-# else /* ? compiler */
-#  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : 0]; } while(0)
-# endif /* compiler */
-#else /* ? STLSOFT_CF_STATIC_ASSERT_SUPPORT */
-# define STLSOFT_STATIC_ASSERT(expr)        STLSOFT_MESSAGE_ASSERT("Static assertion failed: ", (expr))
-#endif /* STLSOFT_CF_STATIC_ASSERT_SUPPORT */
+#define STLSOFT_STATIC_ASSERT(expr)        static_assert((expr), #expr)
 
 /** \def stlsoft_static_assert(expr)
  *
